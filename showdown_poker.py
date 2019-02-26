@@ -89,11 +89,12 @@ class Deck:
 		c3 = self.cards.pop()
 		c4 = self.cards.pop()
 		c5 = self.cards.pop()
-		return [c1,c2,c3,c4,c5]
+		return (c1,c2,c3,c4,c5)
 
 #Misc Functions
 def ss():
 	if show_strength: print(f'[{round(strength/10000,6)}]')
+	else: print()
 
 def hnumber(max,msg):
 	while True:
@@ -331,7 +332,7 @@ while h_inc < hnumber:
 	h_inc += 1
 
 hss = sorted(h_strength.items(), key=lambda k: k[1], reverse=True)
-print(f'\n\n\nPlayer {hss[0][0]+1} has the strongest hand! [{round(hss[0][1]/10000,6)}]\nPlayer {hss[hnumber-1][0] + 1} has the weakest hand :( [{round(hss[hnumber-1][1]/10000,6)}]') if show_strength else print(f'\nPlayer {hss[0][0] + 1} has the strongest hand!\nPlayer {hss[hnumber-1][0]+1} has the weakest hand :(')
+print(f'\n\n\nPlayer {hss[0][0]+1} has the strongest hand! [{round(hss[0][1]/10000,6)}]\nPlayer {hss[hnumber-1][0] + 1} has the weakest hand :( [{round(hss[hnumber-1][1]/10000,6)}]') if show_strength else print(f'\n\n\nPlayer {hss[0][0] + 1} has the strongest hand!\nPlayer {hss[hnumber-1][0]+1} has the weakest hand :(')
 if show_strength:
 
 	print('\n\n\n\n\nHand Occurence:\n')
