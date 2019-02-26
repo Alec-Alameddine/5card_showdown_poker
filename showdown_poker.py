@@ -212,7 +212,6 @@ def straight(hand):
 
 def flush(hand):
 	global strength
-	suits = [hand[0].suit,hand[1].suit,hand[2].suit,hand[3].suit,hand[4].suit]
 	flushes = [suit for suit in suits if suits.count(suit) == 5]
 	if len(flushes) < 5:
 		flush = False
@@ -264,10 +263,10 @@ def straightflush(hand):
 
 	if straight == "True" and flush == True:
 		strength = 8999 + min(vset)
-		sf = f'{evalname(max(values))}-High straight flush of {flushes[0]}'
+		sf = f'{evalname(max(values))}-High Straight Flush of {flushes[0]}'
 	elif straight == "Wheel" and flush == True:
 		strength = 9000
-		sf = f'Five-High straight flush of {flushes[0]}'
+		sf = f'Five-High Straight Flush of {flushes[0]}'
 	elif straight == "Royal" and flush == True:
 		strength = 10000
 		sf = f'Royal Flush of {flushes[0]}'
