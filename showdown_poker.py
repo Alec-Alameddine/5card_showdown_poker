@@ -15,57 +15,40 @@ class Card:
 	def valname(self, value):
 		if self.value == 2:
 			self.vname = 'Two'
-			return 'Two'
 		elif self.value == 3:
 			self.vname = 'Three'
-			return 'Three'
 		elif self.value == 4:
 			self.vname = 'Four'
-			return'Four'
 		elif self.value == 5:
 			self.vname = 'Five'
-			return'Five'
 		elif self.value == 6:
 			self.vname = 'Six'
-			return'Six'
 		elif self.value == 7:
 			self.vname = 'Seven'
-			return'Seven'
 		elif self.value == 8:
 			self.vname = 'Eight'
-			return'Eight'
 		elif self.value == 9:
 			self.vname = 'Nine'
-			return'Nine'
 		elif self.value == 10:
 			self.vname = 'Ten'
-			return'Ten'
 		elif self.value == 11:
 			self.vname = 'Jack'
-			return'Jack'
 		elif self.value == 12:
 			self.vname = 'Queen'
-			return'Queen'
 		elif self.value == 13:
 			self.vname = 'King'
-			return'King'
 		elif self.value == 14:
 			self.vname = 'Ace'
-			return'Ace'
 
 	def suitname(self, suit):
-		if self.suit == "hearts":
+		if self.suit == "Hearts":
 			self.sname = '♥'
-			return '♥'
-		if self.suit == "spades":
+		elif self.suit == "Spades":
 			self.sname = '♠'
-			return '♠'
-		if self.suit == "clubs":
+		elif self.suit == "Clubs":
 			self.sname = '♣'
-			return '♣'
-		if self.suit == "diamonds":
+		elif self.suit == "Diamonds":
 			self.sname = '♦'
-			return '♦'
 
 	def cardname(self):
 		return f'{self.sname}{self.vname}{self.sname}'
@@ -78,8 +61,8 @@ class Deck:
 
 	def create(self):
 		for _ in range(decks):
-			for suit in ("hearts", "spades", "clubs", "diamonds"):
-				for val in (2,3,4,5,6,7,8,9,10,11,12,13,14):
+			for val in (2,3,4,5,6,7,8,9,10,11,12,13,14):
+				for suit in ("Hearts", "Spades", "Clubs", "Diamonds"):
 					self.cards.append(Card(val,suit))
 		shuffle(self.cards)
 
@@ -201,7 +184,7 @@ def detset(hand):
 def straight(hand):
 	global strength
 	if (max(vset) - min(vset) == 4) and numpair(hand) == False and detset(hand) == False and quads(hand) == False:
-		strength = 4999 + min(vset)
+		strength = 5000 + 10*min(vset)
 		straight = f'Straight from {evalname(min(vset))} to {evalname(max(vset))}'
 	elif vset == {14,2,3,4,5}:
 		strength = 5000
@@ -262,7 +245,7 @@ def straightflush(hand):
 		flush = True
 
 	if straight == "True" and flush == True:
-		strength = 8999 + min(vset)
+		strength = 9000 + 10*min(vset)
 		sf = f'{evalname(max(values))}-High Straight Flush of {flushes[0]}'
 	elif straight == "Wheel" and flush == True:
 		strength = 9000
